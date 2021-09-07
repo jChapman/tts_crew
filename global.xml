@@ -122,6 +122,19 @@
 	</TableLayout>
 </Panel>
 
+<VerticalLayout id="lastTrickLayout" rectAlignment="LowerLeft" offsetXY="450 60" height="80" width="164" childForceExpandHeight="false">
+  <Text fontStyle="Bold" fontSize="16" color="#DDDDDD" text="Last Trick"/>
+  <TableLayout cellSpacing="1">
+    <Row preferredHeight="45">
+      <Cell> <Text id="LastTrick1" fontSize="24" /></Cell>
+      <Cell> <Text id="LastTrick2" fontSize="24" /></Cell>
+      <Cell> <Text id="LastTrick3" fontSize="24" /></Cell>
+      <Cell> <Text id="LastTrick4" fontSize="24" /></Cell>
+      <Cell> <Text id="LastTrick5" fontSize="24" /></Cell>
+    </Row>
+  </TableLayout>
+</VerticalLayout>
+
 <VerticalLayout id="buttons2" padding="0 0 0 20" rectAlignment="LowerLeft" offsetXY="450 0" height="60" width="164">
    <Button id="sortHand2" onClick="sortCardsButton" text="Sort Hand"></Button>
 </VerticalLayout>

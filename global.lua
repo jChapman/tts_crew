@@ -1183,6 +1183,17 @@ function getWinner(objects)
     return winningOwner
 end
 
+function letterToColor(letter)
+    local t = {
+        A = "White",
+        G = "Green",
+        B = "Blue",
+        P = "#EE3EA8",
+        Y = "Yellow",
+    }
+    return t[letter]
+end
+
 function resolveTrick()
     -- Check deck quantity, if 0...
     if deck.getQuantity() == 0 then
@@ -1236,6 +1247,10 @@ function resolveTrick()
         
         for i,v in pairs(objectsR.zone) do
             discard.putObject(v)
+
+            Global.UI.setAttribute("LastTrick"..i, "text", v.getName():sub(2,2))
+            Global.UI.setAttribute("LastTrick"..i, "color", letterToColor(v.getName():sub(1, 1)))
+            -- print("LastTrick"..i)
         end
         
         -- Reassign leader
@@ -1260,6 +1275,9 @@ function resolveClicked(player, value, id)
 end
 
 function resetGameClicked(player, value, id)
+    for num = 1,9 do
+        Global.UI.setAttribute("LastTrick"..num, "text", "")
+    end
     local playerColor = player.color
     if not(Player[playerColor].host or Player[playerColor].promoted) then
         broadcastToColor("Only the host or promoted players can reset the game!", playerColor)
